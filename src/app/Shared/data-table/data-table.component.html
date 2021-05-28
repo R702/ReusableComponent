@@ -10,10 +10,10 @@
   </div>
   <table mat-table [dataSource]="dataSource" matSort class="cus-table table-new">
   
-    <!-- <ng-container [matColumnDef]="tableData" *ngFor="let tableData of objectKeys(columnHeader)">
+    <ng-container [matColumnDef]="tableData" *ngFor="let tableData of objectKeys(columnHeader)">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnHeader[tableData]}}    </th>
       <td mat-cell *matCellDef="let element"> {{element[tableData] }}</td>
-    </ng-container> -->
+    </ng-container>
 
     <!-- <ng-container matColumnDef="studentID1">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> studentID </th>
