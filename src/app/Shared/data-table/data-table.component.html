@@ -1,0 +1,113 @@
+<!-- <mat-spinner></mat-spinner> -->
+<!-- 
+<mat-form-field>
+    <input matInput (keyup) = "applyFilter($event)"  placeholder="Filter">
+    
+  </mat-form-field> -->
+
+  <div class="col text-right">
+    <button mat-button class="cfilter" (click)="clearFilter()">Clear Filters</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort class="cus-table table-new">
+  
+    <!-- <ng-container [matColumnDef]="tableData" *ngFor="let tableData of objectKeys(columnHeader)">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{columnHeader[tableData]}}    </th>
+      <td mat-cell *matCellDef="let element"> {{element[tableData] }}</td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="studentID1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> studentID </th>
+        <td mat-cell *matCellDef="let element"> {{element.studentID1}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="studentID1">
+        <th mat-header-cell *matHeaderCellDef> 
+          <div class="d-flex flex-column">
+            <div mat-sort-header>
+                <span class="d-inline">Student ID</span>
+              </div>
+          <mat-form-field>
+        <input matInput   [formControl] = "studentIdFilter" placeholder="Search">
+        </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.studentID1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fname1">
+        <th mat-header-cell *matHeaderCellDef> 
+          <div class="d-flex flex-column">
+            <div mat-sort-header>
+                <span class="d-inline">First Name</span>
+              </div>
+          <mat-form-field>
+        <input matInput   [formControl] = "firstNameFilter" placeholder="Search">
+        </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.fname1 }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Date1">
+        <th mat-header-cell *matHeaderCellDef> 
+          <div class="d-flex flex-column">
+            <div mat-sort-header>
+                <span class="d-inline">Date</span>
+              </div>
+          <mat-form-field>
+        <input matInput  [matDatepicker]="picker1" placeholder="Choose"  placeholder="Search" 
+        (dateInput)="dobDateChanged($event)" (dateChange)="changeDobDate($event)" [formControl] = "DateFilter">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.Date1 | date: 'MM/dd/yyyy'}} </td>
+      </ng-container>
+      
+      <!-- <ng-container matColumnDef="symbol1">
+        <th mat-header-cell *matHeaderCellDef> 
+          <div class="d-flex flex-column">
+            <div mat-sort-header>
+                <span class="d-inline">Weight</span>
+              </div>
+          <mat-form-field>
+        <input matInput  (keyup)="applyFilter($event)" placeholder="Search">
+        </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol1}} </td>
+      </ng-container> -->
+
+
+
+      <ng-container matColumnDef="symbol1">
+        <th mat-header-cell *matHeaderCellDef class="status-col">
+          <div class="d-flex flex-column">
+            <div mat-sort-header>
+              <span class="d-inline">Symbol</span>
+            </div>
+            <mat-form-field class="filter">
+              <mat-select [(ngModel)]="statusId" (ngModelChange)="statusFilterChanged(statusId)">
+                <mat-option *ngFor="let status of statusList" [value]="status.id">
+                  {{status.Name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element" #statusval>
+        {{element.symbol1}}
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+
+  </table>
+
+  <div class="row"  style="text-align:left;">
+    <div class="col" style="text-align:left;">
+      <mat-paginator [pageSizeOptions]="[5,10,25,50,100]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>

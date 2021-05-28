@@ -6,8 +6,42 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      app-root>div {
+        height: 100vh;
+        width: 100vw;
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 50vh;
+      }
+    </style>
+    <div>
+    </div>
+  </app-root>
+  <script src="https://js.stripe.com/v3/"></script>  
+  <script type="text/javascript">
+    // const stripe = Stripe('pk_test_WUsd5GBXbuVqM1dGh1b8e43q'); // use your test publishable key
+    // const stripe = Stripe('pk_test_9rmmhRZvUu4BgGb01MWZtcdK'); // New API Key
+    const stripe = Stripe('pk_test_WUsd5GBXbuVqM1dGh1b8e43q'); // LabeticsTest New API Key
+    const elements = stripe.elements({
+      fonts: [{cssSrc:"https://fonts.googleapis.com/css?family=Roboto:300"}]
+    });
+  </script>
+  <!-- Start of HubSpot Embed Code -->
+  <!-- <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5758783.js"></script> -->
+  <!-- End of HubSpot Embed Code -->
 </body>
 </html>

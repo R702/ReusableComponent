@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  /* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+.mat-column-position {
+  max-width: 100px;
+}
+
+.mat-column-name {
+  max-width: 100px;
+}
